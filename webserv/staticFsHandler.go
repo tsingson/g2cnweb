@@ -10,7 +10,7 @@ import (
 )
 
 //
-func fileHandler(webRoot string) func(ctx *fasthttp.RequestCtx) {
+func staticFsHandler(webRoot string) func(ctx *fasthttp.RequestCtx) {
 	fs := &fasthttp.FS{
 		// Path to directory to serve.
 		Root: webRoot, // "/var/www/static-site",
@@ -52,6 +52,31 @@ func fileHandler(webRoot string) func(ctx *fasthttp.RequestCtx) {
 	}
 
 }
+
+func fsHandler(wwwroot string) fasthttp.RequestHandler {
+	fs := &fasthttp.FS{
+		// Path to directory to serve.
+		Root:       wwwroot,
+		IndexNames: []string{"index.html"},
+		// Generate index pages if client requests directory contents.
+		GenerateIndexPages: false,
+		PathNotFound:       pathNotFound,
+
+		// Enable transparent compression to save network traffic.
+		Compress:        true,
+		AcceptByteRange: true,
+		CacheDuration:   90 * time.Second,
+	}
+
+	// Create request handler for serving static files.
+	return fs.NewRequestHandler()
+}
+
+func pathNotFound(ctx *fasthttp.RequestCtx) {
+	ctx.Error("", 500)
+	return
+}
+
 func filterPath(path string, index []string) error {
 	for _, v := range index {
 		_, err := os.Stat(path + v)

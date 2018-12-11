@@ -2,22 +2,20 @@
 package main
 
 import (
-	"os"
-	"runtime"
-	"time"
-
 	"github.com/allegro/bigcache"
 	"github.com/sevlyar/go-daemon"
 	"github.com/spf13/afero"
 	"github.com/tsingson/fastx/utils"
 	"github.com/tsingson/fastx/zaplogger"
 	"go.uber.org/zap"
+	"runtime"
 )
 
 const (
-	PidFileName = "g2cnweb-pid"
-	WebRoot    = "/home/vk/www"
-	WebPort  = ":80"
+	LogFileNamePrefix = "g2cn-cn"
+	PidFileName = "pid-webserv"
+	WebRoot     = "/home/www/www"
+	WebPort     = ":80"
 )
 
 var (
@@ -27,8 +25,6 @@ var (
 	cache  *bigcache.BigCache
 
 	path, currentPath string
-
-
 
 	// apkEpgMap         sync.Map
 )
@@ -53,42 +49,43 @@ func init() {
 
 		// log setup
 
-		log = zaplogger.NewZapLog(logPath, "bigcache", false)
+		log = zaplogger.NewZapLog(logPath, LogFileNamePrefix, true )
 
 		atom := zap.NewAtomicLevel()
 		atom.SetLevel(zap.InfoLevel)
 
 		zaplog = zaplogger.InitZapLogger(log)
+		log.Info("- - - - - - - - - - - - - - -")
+		log.Info("log init success")
 
 	}
-
-	var err error
-	cache, err = bigcache.NewBigCache(bigcache.Config{
-		Shards:             128,              // number of shards (must be a power of 2)
-		LifeWindow:         10 * time.Minute, // time after which entry can be evicted
-		CleanWindow:        30 * time.Second,
-		MaxEntriesInWindow: 100 * 60 * 10,   // rps * lifeWindow
-		MaxEntrySize:       1024 * 1024 * 3, // max entry size in bytes, used only in initial memory allocation
-		Verbose:            false,            // prints information about additional memory allocation
-		HardMaxCacheSize:   8192,            // Mb
-	})
-	if err != nil {
-		log.Fatal("cache Init Error", zap.Error(err))
-		os.Exit(1)
-	}
+	/**
+		var err error
+		cache, err = bigcache.NewBigCache(bigcache.Config{
+			Shards:             128,              // number of shards (must be a power of 2)
+			LifeWindow:         10 * time.Minute, // time after which entry can be evicted
+			CleanWindow:        30 * time.Second,
+			MaxEntriesInWindow: 100 * 60 * 10,   // rps * lifeWindow
+			MaxEntrySize:       1024 * 1024 * 3, // max entry size in bytes, used only in initial memory allocation
+			Verbose:            false,            // prints information about additional memory allocation
+			HardMaxCacheSize:   8192,            // Mb
+		})
+		if err != nil {
+			log.Fatal("cache Init Error", zap.Error(err))
+			os.Exit(1)
+		}
+	*/
 
 }
 
 //
-func main() {
+func localWeb() {
 	//
-	runtime.GOMAXPROCS(128)
+
 	// gops tracing
 	// 	if err := agent.Listen(agent.Options{ConfigDir: currentPath}); err != nil {
 	// 	log.Fatal("google gops Init Fail")
 	// 	}
-
-
 
 	log.Info("- - - - - - - - - - - - - - -")
 	log.Info("daemon started")
@@ -104,11 +101,11 @@ func main() {
 
 }
 
-
 //
-func WebDaemon() {
+func main() {
 	//
 	runtime.GOMAXPROCS(128)
+
 	// gops tracing
 	// 	if err := agent.Listen(agent.Options{ConfigDir: currentPath}); err != nil {
 	// 	log.Fatal("google gops Init Fail")
@@ -116,13 +113,13 @@ func WebDaemon() {
 
 	// daemon
 	cntxt := &daemon.Context{
-		PidFileName: "epg-cache-pid",
+		PidFileName: PidFileName,
 		PidFilePerm: 0644,
-		LogFileName: path + "/log/epg-cache.log",
+		LogFileName: path + "/log/g2cn-daemon.log",
 		LogFilePerm: 0640,
 		WorkDir:     path,
 		Umask:       027,
-		Args:        []string{"epg-cache"},
+		Args:        []string{"webserv"},
 	}
 
 	d, err1 := cntxt.Reborn()
@@ -140,7 +137,7 @@ func WebDaemon() {
 	// 	middle.Log = log
 	// FasthttpServ(config.AaaConfig.ServerPort, log)
 	// 	FasthttpServ(":8000", "/Users/qinshen/git/linksmart/bin",  log, zaplog)
-	FasthttpServ(WebPort, WebRoot, log, zaplog)
+	StaticHttpServ(WebPort, WebRoot, log, zaplog)
 	// InitHttpProxy()
 
 	// Wait forever.
