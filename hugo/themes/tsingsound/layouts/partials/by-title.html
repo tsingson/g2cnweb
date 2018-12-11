@@ -1,0 +1,10 @@
+
+<ul>
+    <!-- orders content according to content length in ascending order (i.e., the shortest content will be listed first) -->
+    {{ range .Pages.ByLength }}
+        <li>
+            <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+            <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
+        </li>
+    {{ end }}
+</ul>

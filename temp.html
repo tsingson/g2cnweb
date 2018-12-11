@@ -1,0 +1,228 @@
+<nav class="slim-nav " data-ng-controller="navController">
+    <div class="nav-search-box" style="top: -205px; color: rgba(0, 0, 0, 0); opacity: 0;">
+        <div class="suggestion-box" id="recent-searches">
+            <div class="suggestion-type ng-binding">
+                Suggested
+            </div>
+            <menu>
+                <!-- ngRepeat: item in search().suggested -->
+                <li data-ng-repeat="item in search().suggested" data-events="" class="ng-scope">
+                    <a href="/search/free brushes" data-ng-click="updateSearchTerm(item.term)">
+                        <div class="search-link-text ng-binding">free brushes</div>
+                    </a>
+                </li><!-- end ngRepeat: item in search().suggested -->
+                <li data-ng-repeat="item in search().suggested" data-events="" class="ng-scope">
+                    <a href="/search/brushes" data-ng-click="updateSearchTerm(item.term)">
+                        <div class="search-link-text ng-binding">brushes</div>
+                    </a>
+                </li><!-- end ngRepeat: item in search().suggested -->
+                <li data-ng-repeat="item in search().suggested" data-events="" class="ng-scope">
+                    <a href="/search/palette" data-ng-click="updateSearchTerm(item.term)">
+                        <div class="search-link-text ng-binding">palette</div>
+                    </a>
+                </li><!-- end ngRepeat: item in search().suggested -->
+                <li data-ng-repeat="item in search().suggested" data-events="" class="ng-scope">
+                    <a href="/search/gradient brushes" data-ng-click="updateSearchTerm(item.term)">
+                        <div class="search-link-text ng-binding">gradient brushes</div>
+                    </a>
+                </li><!-- end ngRepeat: item in search().suggested -->
+            </menu>
+        </div>
+        <!-- ngIf: !isMobile() -->
+        <div class="suggestion-box ng-scope" id="quick-links" data-ng-if="!isMobile()">
+            <div class="suggestion-type">
+                Quick Links
+            </div>
+            <menu>
+                <li data-events="">
+                    <a href="/faq" data-ng-click="flagLinkClicked()">
+                        <div class="quick-link-text">Frequently Asked Questions</div>
+                    </a>
+                </li>
+                <li data-events="">
+                    <a href="/support" data-ng-click="flagLinkClicked()">
+                        <div class="quick-link-text">Procreate Handbooks</div>
+                    </a>
+                </li>
+                <li data-events="">
+                    <a href="/support" data-ng-click="flagLinkClicked()">
+                        <div class="quick-link-text">Procreate Beta Program</div>
+                    </a>
+                </li>
+                <li data-events="">
+                    <a href="/insight" data-ng-click="flagLinkClicked()">
+                        <div class="quick-link-text">Procreate Insight</div>
+                    </a>
+                </li>
+            </menu>
+        </div><!-- end ngIf: !isMobile() -->
+    </div>
+    <div class="nav-target-bg-container">
+        <!-- ngIf: !isMobile() -->
+        <div class="nav-target-bg ng-scope" data-ng-if="!isMobile()" style="background-color: transparent; left: 354px;">
+            <div class="nav-target-left"></div>
+            <div class="nav-target-pointer">
+                <svg width="100%" height="100%" viewBox="0 0 90 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+                    <g transform="matrix(0.52,0,0,0.52,26.8,69.2)">
+                        <path id="nav-target-pointer-fill" d="M121.538,40L63.501,40C60.977,39.717 58.638,38.481 56.98,36.519C51.571,30.123 40.792,17.375 40.792,17.375C39.257,15.874 37.172,15.029 35,15.029C32.828,15.029 30.743,15.874 29.208,17.375C29.208,17.375 18.429,30.123 13.02,36.519C11.362,38.481 9.023,39.717 6.499,40L-51.538,40L-51.538,-133.077L121.538,-133.077L121.538,40Z"></path>
+                    </g>
+                </svg>
+            </div>
+            <div class="nav-target-right"></div>
+        </div><!-- end ngIf: !isMobile() -->
+    </div>
+    <div class="nav-mobile-menu">
+        <menu class="page-links">
+            <li itemprop="name">
+                <a itemprop="url" href="/" title="Discover Procreate®" data-ng-click="flagLinkClicked()">
+                    <div class="page-title">Home</div>
+                </a>
+            </li>
+            <li itemprop="name">
+                <a itemprop="url" href="/ipad" title="Procreate®" data-ng-click="flagLinkClicked()">
+                    <div class="page-title">Procreate for iPad</div>
+                </a>
+            </li>
+            <li itemprop="name">
+                <a itemprop="url" href="/pocket" title="Procreate® Pocket" data-ng-click="flagLinkClicked()">
+                    <div class="page-title">Procreate Pocket</div>
+                </a>
+            </li>
+            <li itemprop="name">
+                <a itemprop="url" href="/showcase" title="Showcase" data-ng-click="flagLinkClicked(); loadShowcase()">
+                    <div class="page-title">Showcase</div>
+                </a>
+            </li>
+            <!--
+            <li>
+                <a href="/marketplace/" title="Marketplace">
+                    <div class="page-title">Marketplace</div>
+                </a>
+            </li>
+            -->
+            <li itemprop="name">
+                <a itemprop="url" href="/discussions" title="Discussions" data-ng-click="flagLinkClicked()">
+                    <div class="page-title">Discussions</div>
+                </a>
+            </li>
+            <li itemprop="name">
+                <a itemprop="url" href="/insight" title="Insight" data-ng-click="flagLinkClicked()">
+                    <div class="page-title">Insight</div>
+                </a>
+            </li>
+            <li itemprop="name">
+                <a itemprop="url" href="/support" title="Support" data-ng-click="flagLinkClicked()">
+                    <div class="page-title">Support</div>
+                </a>
+            </li>
+        </menu>
+    </div>
+    <div class="nav-container width-dynamic">
+        <!-- Brand Assets -->
+        <div class="nav-brand-assets" id="nav-branding" style="opacity: 1;">
+            <a href="/" data-ng-click="flagLinkClicked(); loadFeatured()">
+                <img class="icon desktop-only" src="assets/img/nav/procreate-icon-nav.png" alt="Procreate for iPad">
+                <img class="trademark mobile-only" src="assets/img/nav/procreate-trademark-nav.svg" alt="Procreate for iPad">
+                <img class="beta-badge" src="assets/img/nav/beta-badge.svg" alt="This site is currently still in its Beta phase">
+            </a>
+        </div>
+        <div class="nav-search-tools">
+            <!-- ngIf: !isMobile() -->
+            <div class="search-spacing ng-scope" data-ng-if="!isMobile()" data-ng-click="toggleSearch('open')">
+            </div><!-- end ngIf: !isMobile() -->
+            <form id="searchForm" data-ng-submit="performSearch()" autocomplete="off" class="ng-pristine ng-valid" style="opacity: 0;">
+                <input id="nav-search-input" type="text" name="s" title="Go" placeholder="Search Procreate..." data-ng-model="term" class="ng-pristine ng-valid ng-empty ng-touched">
+            </form>
+            <div class="cancel-icon" data-ng-click="toggleSearch('close')" style="opacity: 0;">
+                <svg id="cancel-icon-svg" width="100%" height="100%" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+                    <path id="cancel-icon-svg-path" d="M20,17.172L31.314,5.858C32.095,5.077 33.361,5.077 34.142,5.858C34.923,6.639 34.923,7.905 34.142,8.686L22.828,20L34.142,31.314C34.923,32.095 34.923,33.361 34.142,34.142C33.361,34.923 32.095,34.923 31.314,34.142L20,22.828L8.686,34.142C7.905,34.923 6.639,34.923 5.858,34.142C5.077,33.361 5.077,32.095 5.858,31.314L17.172,20L5.858,8.686C5.077,7.905 5.077,6.639 5.858,5.858C6.639,5.077 7.905,5.077 8.686,5.858L20,17.172Z"></path>
+                </svg>
+            </div>
+        </div>
+        <!-- Nav Items / Desktop -->
+        <div class="nav-primary-items desktop-only">
+            <menu>
+                <div class="active-pointer"></div>
+                <li id="discover-menu-item" class="menu-link active" itemprop="name" style="opacity: 1; left: 0px;">
+                    <a itemprop="url" href="/" title="Discover Procreate" data-ng-click="flagLinkClicked()">
+                        <div class="menu-item-title">Discover</div>
+                    </a>
+                </li>
+                <!--                    <li id="learn-menu-item" class="{{ sectionName === 'learn' ? 'active' : '' }} menu-link" itemprop="name">-->
+                <!--                        <a itemprop="url" href="/learn" title="Learn to Procreate" data-ng-click="flagLinkClicked()">-->
+                <!--                            <div class="menu-item-title">Learn</div>-->
+                <!--                        </a>-->
+                <!--                    </li>-->
+                <li id="showcase-menu-item" class="menu-link" itemprop="name" style="opacity: 1; left: 0px;">
+                    <a itemprop="url" href="/showcase" title="Procreate Portfolio - Showcase" data-ng-click="flagLinkClicked(); loadShowcase()">
+                        <div class="menu-item-title">Showcase</div>
+                    </a>
+                </li>
+                <!--                    <li id="marketplace-menu-item" class="{{ sectionName === 'marketplace' ? 'active' : '' }} menu-link" itemprop="name">-->
+                <!--                        <a itemprop="url" href="/marketplace" title="Procreate Marketplace" data-ng-click="flagLinkClicked()">-->
+                <!--                            <div class="menu-item-title">Marketplace</div>-->
+                <!--                        </a>-->
+                <!--                    </li>-->
+                <li id="discussions-menu-item" class="menu-link" itemprop="name" style="opacity: 1; left: 0px;">
+                    <a itemprop="url" href="/discussions" title="Procreate Discussions" data-ng-click="flagLinkClicked()">
+                        <div class="menu-item-title">Discussions</div>
+                    </a>
+                </li>
+                <li id="insight-menu-item" class="menu-link" itemprop="name" style="opacity: 1; left: 0px;">
+                    <a itemprop="url" href="/insight" title="Procreate Insight" data-ng-click="flagLinkClicked()">
+                        <div class="menu-item-title">Insight</div>
+                    </a>
+                </li>
+                <li id="support-menu-item" class=" menu-link" itemprop="name" style="opacity: 1; left: 0px;">
+                    <a itemprop="url" href="/support" title="Procreate Support" data-ng-click="flagLinkClicked()">
+                        <div class="menu-item-title">Support</div>
+                    </a>
+                </li>
+                <li id="search-menu-item" class="">
+                    <div class="search-container" style="width: 23px; right: 258px;">
+                        <label for="nav-search-input" class="search-icon" data-ng-click="toggleSearch('open')" style="padding: 16px 5px;">
+                            <svg id="search-icon-svg" width="100%" height="100%" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 1.41421; display: inline-block; width: 13px; height: 13px;">
+                                <path id="search-icon-svg-path" d="M3.505,16.819L3.512,16.645L3.518,16.47L3.528,16.295L3.541,16.12L3.556,15.947L3.573,15.775L3.589,15.602L3.611,15.431L3.634,15.261L3.659,15.09L3.686,14.922L3.716,14.751L3.745,14.585L3.779,14.416L3.815,14.25L3.853,14.083L3.891,13.919L3.933,13.755L3.975,13.59L4.021,13.428L4.068,13.266L4.116,13.106L4.169,12.946L4.221,12.786L4.276,12.628L4.333,12.47L4.39,12.312L4.451,12.156L4.514,12.002L4.577,11.848L4.643,11.695L4.71,11.543L4.78,11.391L4.851,11.242L4.925,11.092L4.999,10.945L5.077,10.797L5.154,10.652L5.235,10.507L5.315,10.363L5.399,10.22L5.483,10.079L5.569,9.94L5.658,9.799L5.748,9.66L5.839,9.523L5.932,9.386L6.029,9.251L6.123,9.119L6.222,8.986L6.321,8.855L6.422,8.725L6.524,8.596L6.629,8.47L6.734,8.343L6.84,8.219L6.949,8.095L7.059,7.973L7.17,7.851L7.282,7.733L7.396,7.615L7.511,7.497L7.629,7.381L7.747,7.269L7.865,7.156L7.988,7.044L8.11,6.934L8.234,6.825L8.358,6.719L8.485,6.614L8.611,6.509L8.739,6.408L8.87,6.307L9.001,6.208L9.133,6.109L9.266,6.014L9.401,5.919L9.538,5.824L9.675,5.734L9.814,5.643L9.953,5.555L10.094,5.468L10.235,5.384L10.378,5.3L10.521,5.22L10.667,5.14L10.812,5.062L10.96,4.984L11.107,4.91L11.257,4.836L11.406,4.765L11.558,4.695L11.709,4.628L11.863,4.563L12.017,4.499L12.171,4.436L12.327,4.375L12.485,4.318L12.643,4.261L12.801,4.207L12.961,4.154L13.121,4.101L13.281,4.053L13.443,4.007L13.605,3.96L13.769,3.918L13.934,3.876L14.098,3.838L14.264,3.8L14.431,3.764L14.599,3.731L14.766,3.701L14.936,3.672L15.105,3.644L15.275,3.619L15.446,3.596L15.617,3.575L15.789,3.558L15.962,3.541L16.135,3.526L16.31,3.514L16.485,3.503L16.659,3.497L16.834,3.49L17.011,3.488L17.188,3.486L17.542,3.49L17.892,3.503L18.066,3.514L18.241,3.526L18.414,3.541L18.759,3.575L18.93,3.596L19.101,3.619L19.271,3.644L19.44,3.672L19.61,3.701L19.777,3.731L19.945,3.764L20.112,3.8L20.278,3.838L20.442,3.876L20.771,3.96L21.095,4.053L21.255,4.101L21.576,4.207L21.734,4.261L22.049,4.375L22.205,4.436L22.513,4.563L22.667,4.628L22.818,4.695L22.97,4.765L23.119,4.836L23.269,4.91L23.416,4.984L23.564,5.062L23.709,5.14L23.855,5.22L23.998,5.3L24.141,5.384L24.282,5.468L24.423,5.555L24.562,5.643L24.701,5.734L24.838,5.824L24.975,5.919L25.11,6.014L25.243,6.109L25.375,6.208L25.506,6.307L25.637,6.408L25.765,6.509L26.018,6.719L26.142,6.825L26.266,6.934L26.389,7.044L26.511,7.156L26.629,7.269L26.747,7.381L26.865,7.497L26.98,7.615L27.094,7.733L27.206,7.851L27.317,7.973L27.427,8.095L27.537,8.219L27.642,8.343L27.852,8.596L27.954,8.725L28.055,8.855L28.154,8.986L28.253,9.119L28.347,9.251L28.442,9.386L28.537,9.523L28.628,9.66L28.718,9.799L28.807,9.94L28.893,10.079L28.977,10.22L29.061,10.363L29.142,10.507L29.222,10.652L29.3,10.797L29.377,10.945L29.451,11.092L29.525,11.242L29.597,11.391L29.666,11.543L29.733,11.695L29.799,11.848L29.925,12.156L29.986,12.312L30.1,12.628L30.155,12.786L30.26,13.106L30.308,13.266L30.401,13.59L30.485,13.919L30.523,14.083L30.561,14.25L30.597,14.416L30.631,14.585L30.66,14.751L30.69,14.922L30.717,15.09L30.742,15.261L30.766,15.431L30.787,15.602L30.82,15.947L30.835,16.12L30.848,16.295L30.858,16.47L30.871,16.819L30.875,17.173L30.873,17.35L30.871,17.527L30.865,17.702L30.858,17.877L30.848,18.052L30.835,18.226L30.82,18.399L30.803,18.572L30.787,18.745L30.766,18.915L30.742,19.086L30.717,19.256L30.69,19.425L30.66,19.596L30.631,19.762L30.597,19.93L30.561,20.097L30.523,20.263L30.485,20.428L30.443,20.592L30.401,20.756L30.355,20.918L30.308,21.081L30.26,21.241L30.207,21.401L30.155,21.561L30.1,21.719L30.043,21.877L29.986,22.035L29.925,22.191L29.862,22.344L29.799,22.498L29.733,22.652L29.666,22.804L29.597,22.955L29.525,23.105L29.451,23.254L29.377,23.402L29.3,23.549L29.222,23.695L29.142,23.84L29.061,23.983L28.977,24.126L28.893,24.267L28.807,24.411L28.718,24.548L28.628,24.687L28.537,24.824L28.465,24.928C30.581,27.044 33.778,30.243 35.76,32.225C36.234,32.697 36.499,33.339 36.499,34.009C36.499,34.677 36.234,35.319 35.76,35.793L35.758,35.793C35.298,36.255 34.675,36.514 34.024,36.514C33.373,36.514 32.748,36.255 32.288,35.793C30.31,33.817 27.076,30.583 24.943,28.45L24.838,28.522L24.701,28.613L24.562,28.703L24.423,28.792L24.282,28.878L24.141,28.962L23.998,29.047L23.855,29.127L23.709,29.207L23.564,29.285L23.416,29.363L23.269,29.436L23.119,29.51L22.97,29.582L22.818,29.651L22.667,29.719L22.513,29.784L22.359,29.847L22.205,29.91L22.049,29.971L21.891,30.028L21.734,30.085L21.576,30.14L21.415,30.193L21.255,30.245L21.095,30.294L20.933,30.34L20.771,30.386L20.442,30.471L20.278,30.509L20.112,30.546L19.945,30.582L19.777,30.616L19.61,30.645L19.44,30.675L19.271,30.702L19.101,30.728L18.93,30.751L18.759,30.772L18.587,30.789L18.414,30.806L18.241,30.82L18.066,30.833L17.892,30.843L17.717,30.85L17.542,30.856L17.365,30.858L17.188,30.86L17.011,30.858L16.834,30.856L16.659,30.85L16.485,30.843L16.31,30.833L16.135,30.82L15.962,30.806L15.789,30.789L15.617,30.772L15.446,30.751L15.275,30.728L15.105,30.702L14.936,30.675L14.766,30.645L14.599,30.616L14.431,30.582L14.264,30.546L14.098,30.509L13.934,30.471L13.769,30.429L13.605,30.386L13.443,30.34L13.281,30.294L13.121,30.245L12.961,30.193L12.801,30.14L12.643,30.085L12.485,30.028L12.327,29.971L12.171,29.91L12.017,29.847L11.863,29.784L11.709,29.719L11.558,29.651L11.406,29.582L11.257,29.51L11.107,29.436L10.96,29.363L10.812,29.285L10.667,29.207L10.521,29.127L10.378,29.047L10.235,28.962L10.094,28.878L9.953,28.792L9.814,28.703L9.675,28.613L9.538,28.522L9.401,28.427L9.266,28.333L9.133,28.238L9.001,28.139L8.87,28.04L8.739,27.939L8.611,27.838L8.485,27.732L8.358,27.627L8.234,27.522L8.11,27.412L7.988,27.303L7.865,27.191L7.747,27.079L7.629,26.966L7.511,26.85L7.396,26.732L7.282,26.614L7.17,26.496L7.059,26.374L6.949,26.252L6.84,26.127L6.734,26.003L6.629,25.877L6.524,25.75L6.422,25.622L6.321,25.491L6.222,25.361L6.123,25.228L6.029,25.095L5.932,24.96L5.839,24.824L5.748,24.687L5.658,24.548L5.569,24.411L5.483,24.267L5.399,24.126L5.315,23.983L5.235,23.84L5.154,23.695L5.077,23.549L4.999,23.402L4.925,23.254L4.851,23.105L4.78,22.955L4.71,22.804L4.643,22.652L4.577,22.498L4.514,22.344L4.451,22.191L4.39,22.035L4.333,21.877L4.276,21.719L4.221,21.561L4.169,21.401L4.116,21.241L4.068,21.081L4.021,20.918L3.975,20.756L3.933,20.592L3.891,20.428L3.853,20.263L3.815,20.097L3.779,19.93L3.745,19.762L3.716,19.596L3.686,19.425L3.659,19.256L3.634,19.086L3.611,18.915L3.589,18.745L3.573,18.572L3.556,18.399L3.541,18.226L3.528,18.052L3.518,17.877L3.512,17.702L3.505,17.527L3.503,17.35L3.501,17.173L3.505,16.819ZM17.312,7.699L17.064,7.699L16.942,7.703L16.819,7.705L16.697,7.712L16.577,7.718L16.455,7.726L16.335,7.737L16.215,7.747L16.097,7.762L15.977,7.775L15.859,7.792L15.741,7.808L15.625,7.827L15.507,7.848L15.391,7.87L15.275,7.891L15.162,7.916L15.048,7.941L14.932,7.969L14.82,7.998L14.707,8.028L14.595,8.059L14.483,8.091L14.372,8.124L14.262,8.16L14.151,8.196L14.043,8.234L13.934,8.274L13.826,8.314L13.717,8.354L13.611,8.398L13.504,8.442L13.399,8.487L13.293,8.535L13.19,8.582L13.087,8.632L12.984,8.683L12.881,8.733L12.779,8.786L12.678,8.841L12.577,8.895L12.478,8.952L12.379,9.009L12.282,9.068L12.183,9.129L12.086,9.19L11.992,9.251L11.897,9.317L11.802,9.38L11.709,9.445L11.617,9.513L11.524,9.58L11.433,9.649L11.343,9.719L11.254,9.791L11.166,9.862L11.078,9.936L10.991,10.01L10.905,10.085L10.821,10.161L10.736,10.239L10.654,10.317L10.572,10.395L10.49,10.475L10.41,10.557L10.332,10.639L10.254,10.722L10.176,10.806L10.1,10.89L10.024,10.976L9.951,11.063L9.877,11.151L9.805,11.24L9.734,11.328L9.662,11.419L9.595,11.509L9.527,11.602L9.46,11.695L9.395,11.787L9.331,11.882L9.266,11.977L9.205,12.072L9.144,12.169L9.083,12.268L9.024,12.364L8.967,12.463L8.91,12.562L8.855,12.664L8.801,12.765L8.748,12.866L8.697,12.969L8.596,13.175L8.55,13.279L8.501,13.384L8.457,13.489L8.413,13.597L8.369,13.704L8.329,13.812L8.289,13.919L8.249,14.029L8.211,14.136L8.175,14.248L8.139,14.357L8.105,14.469L8.074,14.58L8.042,14.692L8.013,14.806L7.983,14.917L7.956,15.033L7.905,15.261L7.884,15.377L7.861,15.492L7.842,15.61L7.823,15.726L7.806,15.844L7.79,15.962L7.777,16.082L7.762,16.2L7.752,16.32L7.741,16.44L7.733,16.562L7.726,16.683L7.72,16.805L7.718,16.927L7.714,17.049L7.714,17.298L7.718,17.42L7.72,17.542L7.726,17.664L7.733,17.784L7.741,17.906L7.762,18.146L7.777,18.264L7.79,18.384L7.823,18.62L7.842,18.736L7.861,18.854L7.884,18.97L7.905,19.086L7.956,19.313L7.983,19.429L8.013,19.541L8.042,19.655L8.105,19.878L8.139,19.989L8.175,20.099L8.211,20.211L8.249,20.318L8.289,20.428L8.369,20.642L8.457,20.857L8.501,20.963L8.55,21.068L8.596,21.171L8.748,21.481L8.801,21.582L8.91,21.784L9.024,21.982L9.083,22.079L9.144,22.178L9.205,22.275L9.266,22.37L9.331,22.464L9.395,22.559L9.46,22.652L9.595,22.837L9.662,22.928L9.734,23.018L9.877,23.195L9.951,23.284L10.024,23.37L10.1,23.457L10.176,23.541L10.254,23.625L10.41,23.789L10.49,23.871L10.572,23.952L10.736,24.107L10.821,24.187L10.905,24.261L10.991,24.337L11.078,24.411L11.166,24.484L11.343,24.628L11.524,24.767L11.709,24.901L11.802,24.967L11.897,25.03L11.992,25.095L12.086,25.156L12.183,25.217L12.282,25.279L12.379,25.337L12.577,25.451L12.779,25.561L12.881,25.613L13.19,25.765L13.293,25.811L13.399,25.86L13.504,25.904L13.719,25.993L13.934,26.073L14.043,26.113L14.151,26.151L14.262,26.186L14.372,26.222L14.483,26.256L14.707,26.319L14.82,26.349L14.932,26.378L15.048,26.405L15.275,26.456L15.391,26.477L15.507,26.5L15.625,26.519L15.741,26.538L15.977,26.572L16.097,26.584L16.215,26.599L16.455,26.62L16.577,26.629L16.697,26.635L16.819,26.641L16.942,26.643L17.064,26.648L17.312,26.648L17.434,26.643L17.557,26.641L17.679,26.635L17.799,26.629L17.921,26.62L18.041,26.61L18.161,26.599L18.279,26.584L18.399,26.572L18.517,26.555L18.635,26.538L18.751,26.519L18.869,26.5L18.985,26.477L19.101,26.456L19.214,26.431L19.328,26.405L19.444,26.378L19.556,26.349L19.669,26.319L19.781,26.287L19.893,26.256L20.004,26.222L20.114,26.186L20.225,26.151L20.333,26.113L20.442,26.073L20.55,26.033L20.657,25.993L20.765,25.948L20.872,25.904L20.977,25.86L21.083,25.811L21.186,25.765L21.289,25.715L21.392,25.664L21.496,25.613L21.597,25.561L21.698,25.506L21.799,25.451L21.898,25.394L21.997,25.337L22.094,25.279L22.193,25.217L22.29,25.156L22.384,25.095L22.477,25.03L22.572,24.967L22.667,24.901L22.759,24.834L22.85,24.767L22.943,24.697L23.033,24.628L23.119,24.556L23.208,24.484L23.299,24.411L23.385,24.337L23.471,24.261L23.556,24.187L23.64,24.107L23.722,24.029L23.804,23.952L23.886,23.871L23.966,23.789L24.044,23.707L24.122,23.625L24.2,23.541L24.276,23.457L24.352,23.37L24.425,23.284L24.499,23.195L24.642,23.018L24.712,22.928L24.781,22.837L24.916,22.652L24.982,22.559L25.045,22.464L25.11,22.37L25.171,22.275L25.232,22.178L25.293,22.079L25.352,21.982L25.409,21.883L25.466,21.784L25.521,21.683L25.575,21.582L25.628,21.481L25.679,21.378L25.729,21.274L25.78,21.171L25.826,21.068L25.875,20.963L25.919,20.857L25.963,20.75L26.007,20.645L26.047,20.535L26.087,20.428L26.127,20.318L26.165,20.211L26.201,20.099L26.237,19.989L26.271,19.878L26.302,19.766L26.334,19.655L26.363,19.541L26.393,19.429L26.42,19.313L26.445,19.2L26.471,19.084L26.492,18.97L26.515,18.854L26.534,18.736L26.553,18.62L26.57,18.502L26.587,18.384L26.599,18.264L26.614,18.146L26.624,18.026L26.635,17.906L26.643,17.784L26.65,17.664L26.656,17.542L26.658,17.42L26.662,17.298L26.662,17.049L26.658,16.927L26.656,16.805L26.65,16.683L26.643,16.562L26.635,16.44L26.624,16.32L26.614,16.2L26.599,16.082L26.587,15.962L26.57,15.844L26.553,15.726L26.534,15.61L26.515,15.492L26.492,15.377L26.471,15.263L26.445,15.147L26.42,15.033L26.393,14.917L26.363,14.806L26.334,14.692L26.302,14.58L26.271,14.469L26.237,14.357L26.201,14.248L26.165,14.136L26.127,14.029L26.087,13.919L26.047,13.812L26.007,13.702L25.963,13.597L25.919,13.489L25.875,13.384L25.826,13.279L25.78,13.175L25.679,12.969L25.628,12.866L25.575,12.765L25.521,12.664L25.466,12.562L25.409,12.463L25.352,12.364L25.293,12.268L25.232,12.169L25.171,12.072L25.11,11.977L25.045,11.882L24.982,11.787L24.916,11.695L24.849,11.602L24.781,11.509L24.712,11.419L24.642,11.328L24.499,11.151L24.425,11.063L24.352,10.976L24.276,10.89L24.2,10.806L24.122,10.722L24.044,10.639L23.966,10.557L23.886,10.475L23.804,10.395L23.722,10.317L23.64,10.239L23.556,10.161L23.471,10.085L23.385,10.01L23.299,9.936L23.208,9.862L23.119,9.791L23.033,9.719L22.943,9.649L22.85,9.58L22.759,9.513L22.667,9.445L22.572,9.38L22.477,9.317L22.384,9.251L22.29,9.19L22.193,9.129L22.094,9.068L21.997,9.009L21.898,8.952L21.799,8.895L21.597,8.786L21.496,8.733L21.392,8.683L21.289,8.632L21.186,8.582L21.083,8.535L20.977,8.487L20.872,8.442L20.765,8.398L20.657,8.354L20.55,8.314L20.442,8.274L20.333,8.234L20.225,8.196L20.114,8.16L20.004,8.124L19.893,8.091L19.781,8.059L19.669,8.028L19.556,7.998L19.444,7.969L19.328,7.941L19.214,7.916L19.101,7.891L18.985,7.87L18.869,7.848L18.751,7.827L18.635,7.808L18.517,7.792L18.399,7.775L18.279,7.762L18.161,7.747L18.041,7.737L17.921,7.726L17.799,7.718L17.679,7.712L17.557,7.705L17.434,7.703L17.312,7.699Z"></path>
+                            </svg>
+                            <svg id="search-pointer-svg" width="100%" height="100%" viewBox="0 0 90 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 1.41421; top: -15px;">
+                                <path id="search-pointer-svg-path" d="M90,90L59.821,90C58.508,90.147 57.292,90.79 56.43,91.81C53.617,95.136 48.012,101.765 48.012,101.765C47.214,102.546 46.13,102.985 45,102.985C43.871,102.985 42.787,102.546 41.988,101.765C41.988,101.765 36.383,95.136 33.571,91.81C32.709,90.79 31.493,90.147 30.18,90L0,90L0,103L0,0L90,0L90,90Z" "=""></path>
+                            </svg>
+                        </label>
+                    </div>
+                </li>
+            </menu>
+        </div>
+
+        <!-- Nav Items / Mobile -->
+        <!-- ngIf: isMobile() -->
+
+        <!-- Search --
+        <div id=" search-field-container">
+                                    <form id="searchForm" action="javascript:return false;" onsubmit="$(this).find('input').blur();">
+                                        <input type="text" name="s" title="Go" placeholder="Search" data-ng-model="search.term" data-ng-click="toggleSearch('open')" />
+                                        <span class="search-icon"></span>
+                                        <span class="clear-search" data-ng-click="toggleSearch('close')"></span>
+                                    </form>
+                    </div>
+                    -->
+                    <!-- User -->
+                    <!-- ngIf: loggedIn -->
+                    <div class="popover " data-fire-event="popoverTab">
+                        <div class="popover-toggle-container">
+                            <div class="popover-toggle">
+                                <div class="toggle-option left">Notifications</div>
+                                <div class="toggle-option right">Account</div>
+                            </div>
+                        </div>
+                        <div class="popover-content-mask">
+                            <!-- ngIf: loggedIn -->
+                        </div>
+                    </div>
+                    <!-- Login -->
+                    <!-- ngIf: !loggedIn -->
+                    <div class="nav-login ng-scope" data-ng-if="!loggedIn" id="mobile-nav-user" style="opacity: 1;">
+                        <div class="login-signup-btn" data-ng-click="toggleLogin()" data-events="">Sign up</div>
+                    </div><!-- end ngIf: !loggedIn -->
+        </div>
+        <div class="overlay" data-ng-click="toggleNavMenu('close')"></div>
+</nav>

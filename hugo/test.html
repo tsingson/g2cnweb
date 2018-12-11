@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang=en>
+
+<head>
+    <meta charset=utf-8 />
+    <script>window.NREUM||(NREUM={}),NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"2315e0b361",applicationID:"9961421",transactionName:"dVwNRxYMCFtVS01CRVRfClA7EwVQVRYSQFVFVg1HBRcNWF4=",queueTime:6425,applicationTime:9,agent:""};</script>
+    <script>window.NREUM||(NREUM={}),__nr_require=function(n,r,e){function o(t){if(!r[t]){var e=r[t]={exports:{}};n[t][0].call(e.exports,function(e){return o(n[t][1][e]||e)},e,e.exports)}return r[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var t=0;t<e.length;t++)o(e[t]);return o}({1:[function(e,t){function n(){}function r(e,t,n){return function(){return i(e,[f.now()].concat(a(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),o=e(3),a=e(4),u=e("ee").get("tracer"),f=e("loader"),c=NREUM;"undefined"==typeof window.newrelic&&(newrelic=c);var s="api-",l=s+"ixn-";o(["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],function(e,t){c[t]=r(s+t,!0,"api")}),c.addPageAction=r(s+"addPageAction",!0),c.setCurrentRouteName=r(s+"routeName",!0),t.exports=newrelic,c.interaction=function(){return(new n).get()};var p=n.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(u.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw u.emit("fn-err",[arguments,this,e],n),e}finally{u.emit("fn-end",[f.now()],n)}}}};o("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){p[t]=r(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t){function n(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!a)return!1;for(var n=a.split("."),r=t.split("."),o=0;o<r.length;o++)if(r[o]!==n[o])return!1;return!0}var i=null,a=null,r=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var o=navigator.userAgent,u=o.match(r);u&&-1===o.indexOf("Chrome")&&-1===o.indexOf("Chromium")&&(i="Safari",a=u[1])}t.exports={agent:i,version:a,match:n}},{}],3:[function(e,t){function n(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=n},{}],4:[function(e,t){function n(e,t,n){t||(t=0),void 0===n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=n},{}],5:[function(e,t){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t){function a(){}function u(c){function s(e){return e&&e instanceof a?e:e?g(e,v,f):f()}function t(e,t,n,r){if(!b.aborted||r){c&&c(e,t,n);for(var o=s(n),i=l(e),a=i.length,u=0;u<a;u++)i[u].apply(o,t);var f=h[p[e]];return f&&f.push([d,e,t,o]),o}}function e(e,t){i[e]=l(e).concat(t)}function n(e,t){var n=i[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function l(e){return i[e]||[]}function r(e){return y[e]=y[e]||u(t)}function o(e,n){w(e,function(e,t){n=n||"feature",(p[t]=n)in h||(h[n]=[])})}var i={},p={},d={on:e,addEventListener:e,removeEventListener:n,emit:t,get:r,listeners:l,context:s,buffer:o,abort:m,aborted:!1};return d}function f(){return new a}function m(){(h.api||h.feature)&&(b.aborted=!0,h=b.backlog={})}var v="nr@context",g=e("gos"),w=e(3),h={},y={},b=t.exports=u();b.backlog=h},{}],gos:[function(e,t){function n(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r}var i=Object.prototype.hasOwnProperty;t.exports=n},{}],handle:[function(e,t){function n(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");(t.exports=n).ee=o},{}],id:[function(e,t){function n(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");t.exports=n},{}],loader:[function(e,t){function n(){if(!x++){var n=b.info=NREUM.info,e=p.getElementsByTagName("script")[0];if(setTimeout(c.abort,3e4),!(n&&n.licenseKey&&n.applicationID&&e))return c.abort();f(h,function(e,t){n[e]||(n[e]=t)}),u("mark",["onload",i()+b.offset],null,"api");var t=p.createElement("script");t.src="https://"+n.agent,e.parentNode.insertBefore(t,e)}}function r(){"complete"===p.readyState&&o()}function o(){u("mark",["domContent",i()+b.offset],null,"api")}function i(){return E.exists&&performance.now?Math.round(performance.now()):(a=Math.max((new Date).getTime(),a))-b.offset}var a=(new Date).getTime(),u=e("handle"),f=e(3),c=e("ee"),s=e(2),l=window,p=l.document,d="addEventListener",m="attachEvent",v=l.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:v,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var w=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1099.min.js"},y=v&&g&&g[d]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a,now:i,origin:w,features:{},xhrWrappable:y,userAgent:s};e(1),p[d]?(p[d]("DOMContentLoaded",o,!1),l[d]("load",n,!1)):(p[m]("onreadystatechange",r),l[m]("onload",n)),u("mark",["firstbyte",a],null,"api");var x=0,E=e(5)},{}]},{},["loader"]);</script>
+    <link rel=apple-touch-icon sizes=76x76 href="/assets/presentation-page/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-239aa284801fb5629683f051242d546de2386981abd5b5208b3edcf8a5d06d8c.ico" />
+    <meta https-equiv=X-UA-Compatible content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name=viewport />
+    <meta name=viewport content="width=device-width" />
+    <title> Fully coded UI Tools to create web apps @ Creative Tim </title>
+    <link rel=canonical href="https://www.creative-tim.com/presentation" />
+    <meta name=description content="UI Kits and Dashboards for Bootstrap, Vue.js, React and Angular" />
+    <meta name=keywords content="fully coded, ui tools, bootstrap, vuejs, vue.js, react, angular, angularjs, creativetim, creative tim, bootstrap, theme, freebies, bootstrap kit, bootstrap template, free items, beautiful ui, awesome freebies, css cards, bootstrap wizard, bootstrap plugin" />
+    <meta property="og:title" content="Creative Tim - Fully coded UI Tools to create web apps" />
+    <meta property="og:url" content="https://www.creative-tim.com/presentation" />
+    <meta property="og:image" content="/assets/presentation-page/img/social_image.jpg" />
+    <meta property="og:description" content="UI Kits and Dashboards for Bootstrap, Vue.js, React and Angular" />
+    <meta property="twitter:card" content=summary />
+    <meta property="twitter:url" content="https://www.creative-tim.com/presentation" />
+    <meta property="twitter:title" content="Creative Tim - Fully coded UI Tools to create web apps" />
+    <meta property="twitter:description" content="UI Kits and Dashboards for Bootstrap, Vue.js, React and Angular" />
+    <meta property="twitter:image" content="/assets/presentation-page/img/social_image.jpg" />
+    <meta property="twitter:domain" content="https://www.creative-tim.com/presentation" />
+    <meta property="twitter:site" content="@CreativeTim" />
+    <meta property="twitter:creator" content="@CreativeTim" />
+    <link rel=stylesheet media=all href="/assets/presentation-230e6ce5c711ddb1a900294790193e4210d712b3f2e41443eaffe6160724a8b9.css" data-turbolinks-track=reload />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel=stylesheet>
+    <script src="/assets/presentation-c04e8f7757187c50169d7f11ec56e89bb73d5615a365eca5b5951217d3707432.js" data-turbolinks-track=reload></script>
+    <script>!function(e,o,r,c,a,t,l){e.GoogleAnalyticsObject=a,e[a]=e[a]||function(){(e[a].q=e[a].q||[]).push(arguments)},e[a].l=1*new Date,t=o.createElement(r),l=o.getElementsByTagName(r)[0],t.async=1,t.src=c,l.parentNode.insertBefore(t,l)}(window,document,"script","//www.google-analytics.com/analytics.js","ga");try{ga("create","UA-46172202-1","auto",{allowLinker:!0})}catch(e){console.log("Google error")}try{ga("require","linker")}catch(e){console.log("Google error")}try{ga("require","ecommerce")}catch(e){console.log("Google error")}try{ga("linker:autoLink",["creative-tim.com","avangate.com"])}catch(e){console.log("Google error")}try{ga("send","pageview")}catch(e){console.log("Google error")}</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-880998111"></script>
+    <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","AW-880998111");</script>
+    <script>!function(e,t,n,o,c,r,a){e.fbq||(c=e.fbq=function(){c.callMethod?c.callMethod.apply(c,arguments):c.queue.push(arguments)},e._fbq||(e._fbq=c),(c.push=c).loaded=!0,c.version="2.0",c.queue=[],(r=t.createElement(n)).async=!0,r.src=o,(a=t.getElementsByTagName(n)[0]).parentNode.insertBefore(r,a))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");try{fbq("init","111649226022273"),fbq("track","PageView")}catch(err){console.log("Facebook Track Error:",err)}</script> <noscript><img height=1 width=1 style="display:none" src="https://www.facebook.com/tr?id=111649226022273&ev=PageView&noscript=1"/></noscript>
+        <script>!function(t,h,e,j,n,s){t.hj=t.hj||function(){(t.hj.q=t.hj.q||[]).push(arguments)},t._hjSettings={hjid:99526,hjsv:5},n=h.getElementsByTagName("head")[0],(s=h.createElement("script")).async=1,s.src=e+t._hjSettings.hjid+j+t._hjSettings.hjsv,n.appendChild(s)}(window,document,"https://static.hotjar.com/c/hotjar-99526.js?");</script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default" role=navigation-demo>
+        <div class=container>
+            <div class=navbar-header> <button type=button class=navbar-toggle data-toggle=collapse data-target="#navigation-default2"> <span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button> <a class=navbar-brand href="https://www.creative-tim.com">Creative Tim</a> </div>
+            <div class="collapse navbar-collapse" id=navigation-default2>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown dropdown-with-icons"> <a href="#" class=dropdown-toggle data-toggle=dropdown> Our products <b class=caret></b> </a>
+                        <ul class=dropdown-menu>
+                            <li> <a href="https://www.creative-tim.com/bootstrap-themes?ref=new-presentation-page"> <span class=logo> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/bootstrap.jpg" alt=""> </span> <span class=text><b>Bootstrap</b> Frameworks</span> </a> </li>
+                            <li> <a href="https://www.creative-tim.com/bootstrap-themes/vuejs-themes?ref=new-presentation-page"> <span class=logo> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/vue.jpg" alt=""> </span> <span class=text><b>Vue.js</b> Frameworks</span> </a> </li>
+                            <li> <a href="https://www.creative-tim.com/bootstrap-themes/react-themes?ref=new-presentation-page"> <span class=logo> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/react.jpg" alt=""> </span> <span class=text><b>React</b> Frameworks</span> </a> </li>
+                            <li> <a href="https://www.creative-tim.com/bootstrap-themes/angular-themes?ref=new-presentation-page"> <span class=logo> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/angular.jpg" alt=""> </span> <span class=text><b>Angular</b> Frameworks</span> </a> </li>
+                        </ul>
+                    </li>
+                    <li> <a class="nav-link social btn-facebook" href="https://www.facebook.com/CreativeTim/" target=_blank> <i class="fa fa-facebook-square"></i> </a> </li>
+                    <li> <a class="nav-link social btn-instagram" href="https://www.instagram.com/creativetimofficial" target=_blank> <i class="fa fa-instagram"></i> </a> </li>
+                    <li> <a class="nav-link social btn-twitter" href="https://twitter.com/CreativeTim" target=_blank> <i class="fa fa-twitter"></i> </a> </li>
+                    <li> <a class="nav-link social btn-dribbble" href="https://dribbble.com/creativetim" target=_blank> <i class="fa fa-dribbble"></i> </a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class=wrapper>
+        <div class="section section-header">
+            <div class=points>
+                <div class="point point-floating-1"></div>
+                <div class="point point-floating-2"></div>
+                <div class="point point-floating-3"></div>
+                <div class="point point-floating-4"></div>
+                <div class="point point-floating-5"></div>
+                <div class="point point-floating-6"></div>
+                <div class="point point-floating-7"></div>
+                <div class="point point-floating-8"></div>
+                <div class="point point-floating-9"></div>
+            </div>
+            <div class=container>
+                <div class=row>
+                    <div class="col-md-6 text-left col-z-index"> <h1 class=title>Fully coded UI Tools to create web apps</h1> <h4 class=desc>UI Kits and Dashboards built on top of Bootstrap, Vue.js, React and Angular.</h4>
+                    </div>
+                    <div class=col-md-6> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/illustration.jpg" class=illustration> </div>
+                    </div>
+                </div>
+                <div class=space-110></div>
+                <div class="card card-plain">
+                    <div class=card-featured-content> <a href="https://www.forbes.com/" target=_blank> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/forbes.jpg"> </a> <a href="https://entrepreneur.com/" target=_blank> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/entrepreneur.jpg" style="width: 150px; top: 2px; position: relative"> </a> <a href="https://www.producthunt.com/" target=_blank> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/product-hunt.jpg" style="width: 145px"> </a> <a href="https://www.awwwards.com/" target=_blank> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/awwwards.jpg" style="width: 125px"> </a> <a href="https://www.creativebloq.com/" target=_blank> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/creativebloq.jpg" style="width: 120px"> </a> <a href="https://speckyboy.com/" target=_blank> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/speckyboy.jpg"> </a> </div>
+                </div>
+            </div>
+            <div class="section section-do" id=whatwedo>
+                <div class=points>
+                    <div class="point point-floating-1"></div>
+                    <div class="point point-floating-2"></div>
+                    <div class="point point-floating-7"></div>
+                    <div class="point point-floating-8"></div>
+                    <div class="point point-floating-9"></div>
+                </div>
+                <div class=container>
+                    <div class="col-md-8 col-md-offset-2 text-center"> <h2 class=title>Area of expertise</h2>
+                        <div class=space-50></div>
+                    </div>
+                    <div class=row>
+                        <div class=col-md-4>
+                            <div class=info>
+                                <div class="icon icon-info icon-round icon-lg"> <i class="nc-icon nc-single-copy-04"></i> </div>
+                                <div class=description> <h4 class=info-title>Create UI Frameworks</h4> <h5 class=desc> We have created the tools that will help you in your next project. From plugins to complex kits, we've got you covered in all areas regarding front-end development. </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=col-md-4>
+                            <div class=info>
+                                <div class="icon icon-danger icon-round icon-lg"> <i class="nc-icon nc-palette"></i> </div>
+                                <div class=description> <h4 class=info-title>Share Freebies</h4> <h5 class=desc> Everything that we used to create our products can be downloaded for free under MIT License. People have already trusted and used them in thousands of sites. </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=col-md-4>
+                            <div class=info>
+                                <div class="icon icon-success icon-round icon-lg"> <i class="nc-icon nc-spaceship"></i> </div>
+                                <div class=description> <h4 class=info-title>Power Hackathons</h4> <h5 class=desc> We've sponsored many hackathons around the world with the tools that they need to make awesome web applications. Our UI tools go hand in hand with startups. </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section section-technologies">
+                <div class=points>
+                    <div class="point point-floating-1"></div>
+                    <div class="point point-floating-2"></div>
+                    <div class="point point-floating-3"></div>
+                    <div class="point point-floating-4"></div>
+                </div>
+                <div class=container>
+                    <div class=row>
+                        <div class="col-md-8 col-md-offset-2 text-center"> <h2 class=title>Our technologies</h2> <h4 class=desc> Our products are built on top of modern frameworks. Having the coded and the designed versions for the same framework, your designers and developers will talk the same language. </h4>
+                        </div> <br>
+                        <div class="col-sm-1 col-xs-3 col-sm-offset-2"> <a href="https://vuejs.org/" target=_blank rel=tooltip title="Vue.js - The progressive javascript framework"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/vue.jpg"> </a> </div>
+                        <div class="col-sm-1 col-xs-3"> <a href="https://angularjs.org/" target=_blank rel=tooltip title="Angular - One framework. Mobile & desktop"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/angular.jpg"> </a> </div>
+                        <div class="col-sm-1 col-xs-3"> <a href="https://reactjs.org/" target=_blank rel=tooltip title="React - A JavaScript library for building user interfaces"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/react.jpg"> </a> </div>
+                        <div class="col-sm-1 col-xs-3"> <a href="https://getbootstrap.com/" target=_blank rel=tooltip title="Bootstrap - Most popular front-end component library"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/bootstrap.jpg"> </a> </div>
+                        <div class="col-sm-1 col-xs-3"> <a href="https://sass-lang.com/" target=_blank rel=tooltip title="Sass - Powerful professional CSS extension language in the world"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/sass.jpg"> </a> </div>
+                        <div class="col-sm-1 col-xs-3"> <a href="https://www.adobe.com/products/photoshop.html" target=_blank rel=tooltip title="Adobe Photoshop - Software for digital images manipulation"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/ps.jpg"> </a> </div>
+                        <div class="col-sm-1 col-xs-3"> <a href="https://www.sketchapp.com/" target=_blank rel=tooltip title="Sketch - Digital design toolkit"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/sketch.jpg"> </a> </div>
+                        <div class="col-sm-1 col-xs-3"> <a href="https://www.figma.com/" target=_blank rel=tooltip title="Figma - Turn Ideas Into Products Faster"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/figma.jpg"> </a> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section section-products">
+                <div class=points>
+                    <div class="point point-floating-3"></div>
+                    <div class="point point-floating-4"></div>
+                    <div class="point point-floating-5"></div>
+                </div>
+                <div class=container>
+                    <div class=row>
+                        <div class="col-md-8 col-md-offset-2 text-center"> <h2 class=title>Solutions for you</h2> <h4 class=desc> Creating your web design from scratch with dedicated designers can be very expensive. Using our solutions you don't have to worry about design. Save time and money by focusing on the business model. </h4>
+                        </div>
+                    </div>
+                    <div class=row>
+                        <div class=points>
+                            <div class="point point-floating-1"></div>
+                            <div class="point point-floating-2"></div>
+                            <div class="point point-floating-3"></div>
+                            <div class="point point-floating-4"></div>
+                        </div>
+                        <div class=col-md-5>
+                            <div class=ipad>
+                                <div class=shadow></div>
+                                <div class=lid></div>
+                                <div class=screen>
+                                    <div id=carousel-kits class="carousel slide" data-ride=carousel data-interval=2500>
+                                        <ol class=carousel-indicators>
+                                            <li data-target="#carousel-kits" data-slide-to=0 class=active></li>
+                                            <li data-target="#carousel-kits" data-slide-to=1></li>
+                                            <li data-target="#carousel-kits" data-slide-to=2></li>
+                                        </ol>
+                                        <div class=carousel-inner role=listbox>
+                                            <div class="item active"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/nowuikit.jpg" alt="..."> </div>
+                                                <div class=item> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/materialkit.jpg" alt="..."> </div>
+                                                    <div class=item> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/paperkit.jpg" alt="..."> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 col-md-offset-1">
+                                        <div class="info info-horizontal">
+                                            <div class="icon icon-success"> <i class="nc-icon nc-single-copy-04"></i> </div>
+                                            <div class=description> <h4 class=info-title>UI Kits & Example Pages</h4>
+                                                <p class=desc> The easiest way to get started is to use one of our pre-built example pages. From landing pages to e-commerce or blog pages, you will be able jump start your development. Show your clients a quick prototype that can be made in minutes! </p>
+                                            </div>
+                                        </div>
+                                        <div class="info info-horizontal">
+                                            <div class="icon icon-danger"> <i class="nc-icon nc-app"></i> </div>
+                                            <div class=description> <h4 class=info-title>Pre-Made Sections & Elements</h4>
+                                                <p class=desc> Build pages in no time using pre-made sections and elements! From headers to footers, you will be able to choose the best combination for your project. </p> <a href="https://www.creative-tim.com/bootstrap-themes/ui-kit?ref=new-presentation-page" target=_blank class=btn>View UI Kits</a> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=space-180></div>
+                                <div class=row>
+                                    <div class=points>
+                                        <div class="point point-floating-6"></div>
+                                        <div class="point point-floating-2"></div>
+                                        <div class="point point-floating-5"></div>
+                                        <div class="point point-floating-7"></div>
+                                        <div class="point point-floating-8"></div>
+                                        <div class="point point-floating-9"></div>
+                                    </div>
+                                    <div class=col-md-5>
+                                        <div class="info info-horizontal">
+                                            <div class="icon icon-info"> <i class="nc-icon nc-controller"></i> </div>
+                                            <div class=description> <h4 class=info-title>Easy to Use Admin Templates</h4>
+                                                <p class=desc> Every element that you need in a product comes built in as a component. All components fit perfectly with each other and can take variations in colour. </p>
+                                            </div>
+                                        </div>
+                                        <div class="info info-horizontal">
+                                            <div class="icon icon-warning"> <i class="nc-icon nc-settings"></i> </div>
+                                            <div class=description> <h4 class=info-title>Fully Coded Dashboards</h4>
+                                                <p class=desc> Using the our Admin Dashboards will save you large amount of time. You don't have to worry about customising the basic Bootstrap 4 design or generating new components. </p> <a href="https://www.creative-tim.com/bootstrap-themes/admin-dashboard?ref=new-presentation-page" target=_blank class=btn>View Admin Dashboards</a> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 col-md-offset-1">
+                                        <div class=laptop>
+                                            <div class=shadow></div>
+                                            <div class=lid></div>
+                                            <div class=screen>
+                                                <div id=carousel-dashboards class="carousel slide" data-ride=carousel data-interval=4500>
+                                                    <ol class=carousel-indicators>
+                                                        <li data-target="#carousel-dashboards" data-slide-to=0 class=active></li>
+                                                        <li data-target="#carousel-dashboards" data-slide-to=1></li>
+                                                        <li data-target="#carousel-dashboards" data-slide-to=2></li>
+                                                    </ol>
+                                                    <div class=carousel-inner role=listbox>
+                                                        <div class="item active"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/md-dashboard.jpg" alt="..."> </div>
+                                                            <div class=item> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/nud-dashboard.jpg" alt="..."> </div>
+                                                                <div class=item> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/lbd-dashboard.jpg" alt="..."> </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class=bottom>
+                                                            <div class=keyboard></div>
+                                                            <div class=trackpad></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class=points>
+                                                    <div class="point point-floating-1"></div>
+                                                    <div class="point point-floating-3"></div>
+                                                    <div class="point point-floating-4"></div>
+                                                </div>
+                                            </div>
+                                            <div class=space-180></div>
+                                        </div>
+                                    </div>
+                                    <div class="section section-numbers" style="background-image:url('https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/map.png');">
+                                        <div class=points>
+                                            <div class="point point-floating-1"></div>
+                                            <div class="point point-floating-2"></div>
+                                            <div class="point point-floating-3"></div>
+                                            <div class="point point-floating-4"></div>
+                                            <div class="point point-floating-5"></div>
+                                            <div class="point point-floating-6"></div>
+                                            <div class="point point-floating-7"></div>
+                                            <div class="point point-floating-8"></div>
+                                            <div class="point point-floating-9"></div>
+                                        </div>
+                                        <div class=container>
+                                            <div class=row>
+                                                <div class="col-md-6 col-md-offset-3">
+                                                    <div class="info text-center">
+                                                        <div class="icon icon-danger icon-circle icon-lg"> <i class="nc-icon nc-badge"></i> </div>
+                                                        <div class=numbers>
+                                                            <div class=num>4</div>
+                                                            <div class=num>3</div>
+                                                            <div class=num>8</div>
+                                                            <div class=vir>,</div>
+                                                            <div class=num>7</div>
+                                                            <div class=num>2</div>
+                                                            <div class=num>7</div>
+                                                        </div> <h3 class=desc>Developers and Companies around the world using our products.</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section section-team">
+                                        <div class=points>
+                                            <div class="point point-floating-7"></div>
+                                            <div class="point point-floating-8"></div>
+                                            <div class="point point-floating-9"></div>
+                                        </div>
+                                        <div class=container>
+                                            <div class=row>
+                                                <div class="col-md-8 col-md-offset-2 text-center"> <h2 class=title>Who is behind these great looking interfaces?</h2>
+                                                    <div class=space-50></div>
+                                                </div>
+                                            </div>
+                                            <div class=avatars>
+                                                <div class="avatar avatar-one" data-toggle=tooltip data-placement=top title="Marketing Strategist"> <a href="#pablo"> <img class="img img-raised" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/team/Diana2.jpg"> </a> </div>
+                                                <div class="avatar avatar-two" data-toggle=tooltip data-placement=bottom title="AngularJS Developer"> <a href="#pablo"> <img class="img img-raised" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/team/Ciprian2.jpg"> </a> </div>
+                                                <div class="avatar avatar-three" data-toggle=tooltip data-placement=top title="Front-End Developer"> <a href="#pablo"> <img class="img img-raised" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/team/Dragos2.jpg"> </a> </div>
+                                                <div class="avatar avatar-four" data-toggle=tooltip data-placement=bottom title="Full-Stack Developer"> <a href="#pablo"> <img class="img img-raised" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/team/Beni2.jpg"> </a> </div>
+                                                <div class="avatar avatar-five" data-toggle=tooltip data-placement=bottom title="UI/UX Designer"> <a href="#pablo"> <img class="img img-raised" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/team/StefanC2.jpg"> </a> </div>
+                                                <div class="avatar avatar-six" data-toggle=tooltip data-placement=top title="Front-End Developer"> <a href="#pablo"> <img class="img img-raised" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/team/Alexis2.jpg"> </a> </div>
+                                                <div class="avatar avatar-seven"> <a href="#pablo"> <img class="img img-raised" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/team/Pavel2.jpg" data-toggle=tooltip data-placement=top title="Growth Marketer"> </a> </div>
+                                                <div class="avatar avatar-eight" data-toggle=tooltip data-placement=bottom title="UI/UX Designer"> <a href="#pablo"> <img class="img img-raised" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/team/Elisa2.jpg"> </a> </div>
+                                                <div class="avatar avatar-nine" data-toggle=tooltip data-placement=bottom title="Front-End Developer"> <a href="#pablo"> <img class="img img-raised" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/team/Rares2.jpg"> </a> </div>
+                                                <div class="avatar avatar-ten" data-toggle=tooltip data-placement=top title="Front-End Developer"> <a href="#pablo"> <img class="img img-raised" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/team/StefanM2.jpg"> </a> </div>
+                                                <div class="avatar avatar-eleven" data-toggle=tooltip data-placement=bottom title=Co-Founder> <a href="#pablo"> <img class="img img-raised" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/team/Alex2.jpg"> </a> </div>
+                                                <div class="avatar avatar-tw" data-toggle=tooltip data-placement=top title="VueJS Developer"> <a href="#pablo"> <img class="img img-raised" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/team/Cristi2.jpg"> </a> </div>
+                                                <div class="avatar avatar-tt" data-toggle=tooltip data-placement=bottom title="ReactJS Developer"> <a href="#pablo"> <img class="img img-raised" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/team/Manu2.jpg"> </a> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section section-who">
+                                        <div class=container>
+                                            <div class=row>
+                                                <div class="col-md-8 col-md-offset-2 text-center"> <h2 class=title>Some of our awesome clients</h2> <h4 class=desc> We are so excited to see our frameworks being used in Personal Projects, Large Enterprise Applications, Governmental Projects or <br>in Prestigious Universities. </h4>
+                                                </div>
+                                            </div>
+                                            <div class=container>
+                                                <div class=row>
+                                                    <div class=col-md-12>
+                                                        <div class=card-featured>
+                                                            <div class=card-featured-content> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/microsoft.jpg"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/vodafone.jpg"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/at.jpg" style="width:70px;"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/amazon.jpg" style="width: 90px"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/cisco.jpg" style="width: 75px;"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/sales.jpg" style="width:75px;"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/ibm.jpg" style="width:80px;"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/samsung.jpg"> </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class=space-50></div>
+                                        </div>
+                                        <div class="section section-giving section-black">
+                                            <div class=universities> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/harvard.png"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/mit.png" style="width:100px;"> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/who/stanford.png"> </div>
+                                                <div class=container>
+                                                    <div class=row>
+                                                        <div class="col-md-10 col-md-offset-1 text-center"> <h2 class="title text-white">Giving Back to the Community</h2> <h4 class="desc text-grey"> Here at Creative Tim we belive in the power of giving back! We are proud to sponsor schools, universities, hackathons and be part of events where we can teach people how to become better developers, designers and entrepreneurs. </h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class=row>
+                                                        <div class=col-md-4> <img class="img-raised rounded img-fluid" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/giveback1.jpg" rel=tooltip title="Organisers of the 1st Dribbble Meetup in Romania."> </div>
+                                                            <div class=col-md-4> <img class="img-raised rounded img-fluid" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/giveback6.jpg" rel=tooltip title="Presentation about building an online business for AIESEC Youth Forum."> </div>
+                                                                <div class=col-md-4> <img class="img-raised rounded img-fluid" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/giveback3.jpg" rel=tooltip title="Mentors and participants at Startup Weekend in Piatra Neamt 2017."> </div>
+                                                                    <div class=col-md-3> <img class="img-raised rounded img-fluid" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/giveback9.jpg" rel=tooltip title="Sponsors and mentors at Startup Weekend Zurich 2016."> </div>
+                                                                        <div class=col-md-3> <img class="img-raised rounded img-fluid" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/giveback5.jpg" rel=tooltip title="Sponsors and mentors at Startup Weekend Iasi 2018."> </div>
+                                                                            <div class=col-md-3> <img class="img-raised rounded img-fluid" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/giveback4.jpg" rel=tooltip title="Sponsors at Startup Weekend Piatra Neamt 2017."> </div>
+                                                                                <div class=col-md-3> <img class="img-raised rounded img-fluid" src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/giveback2.jpg" rel=tooltip title="Gift Cards for students and participants."> </div>
+                                                                                </div>
+                                                                                <div class=space-110> </div>
+                                                                                <div class=row>
+                                                                                    <div class="col-md-4 col-sm-offset-0"> <h3>Conferences</h3>
+                                                                                        <div class=items>
+                                                                                            <div class=item>
+                                                                                                <div class=photo> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/dribbble.jpg"> </div>
+                                                                                                    <div class=info> <a class="title text-left" href="http://blog.creative-tim.com/web-design/first-bucharest-dribbble-meetup-thoughts-impressions/" target=_blank>Dribbble Meetup</a>
+                                                                                                        <div class="text text-left">Hosted the first 2 Dribbble meetups in Romania</div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class=item>
+                                                                                                    <div class=photo> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/swpn.jpg"> </div>
+                                                                                                        <div class=info> <a class="title text-left" href="http://communities.techstars.com/romania/piatra-neamt-romania/startup-weekend/11523" target=_blank>Startup Weekend Piatra Neamt</a>
+                                                                                                            <div class="text text-left">TechStars Hackathon</div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class=item>
+                                                                                                        <div class=photo> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/swb.jpg"> </div>
+                                                                                                            <div class=info> <a class="title text-left" href="http://communities.techstars.com/romania/bucharest/startup-weekend/10521" target=_blank>Startup Weekend Bucharest</a>
+                                                                                                                <div class="text text-left">TechStars Hackathon</div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-md-4 col-sm-offset-0"> <h3>Community Help</h3>
+                                                                                                    <div class=items>
+                                                                                                        <div class=item>
+                                                                                                            <div class=photo> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/cheatsheet.jpg"> </div>
+                                                                                                                <div class=info> <a class="title text-left" href="https://www.creative-tim.com/bootstrap-cheat-sheet" target=_blank>BS4 Cheat Sheet</a>
+                                                                                                                    <div class="text text-left">Bootstrap Cheat Sheet for Developers</div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class=item>
+                                                                                                                <div class=photo> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/youtube-open.jpg"> </div>
+                                                                                                                    <div class=info> <a class="title text-left" href="https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w" target=_blank>YouTube Tutorials</a>
+                                                                                                                        <div class="text text-left">How to build web interfaces with HTML</div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div class=item>
+                                                                                                                    <div class=photo> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/anatomy.jpg"> </div>
+                                                                                                                        <div class=info> <a class="title text-left" href="https://medium.freecodecamp.org/the-anatomy-of-a-bootstrap-dashboard-that-earns-1-000s-each-month-ed3404010d25" target=_blank>Anatomy of a Bootstrap Dashboard</a>
+                                                                                                                            <div class="text text-left">Case study for web developers</div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="col-md-4 col-sm-offset-0"> <h3>Open Source</h3>
+                                                                                                                <div class=items>
+                                                                                                                    <div class=item>
+                                                                                                                        <div class=photo> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/mk-open.jpg"> </div>
+                                                                                                                            <div class=info> <a class="title text-left" href="https://github.com/creativetimofficial/material-kit" target=_blank>Material Kit</a>
+                                                                                                                                <div class="text text-left">Bootstrap 4 Material Design UI Kit</div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div class=item>
+                                                                                                                            <div class=photo> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/nuk-open.jpg"> </div>
+                                                                                                                                <div class=info> <a class="title text-left" href="https://github.com/creativetimofficial/now-ui-kit" target=_blank>Now UI Kit</a>
+                                                                                                                                    <div class="text text-left">Bootstrap 4 UI Kit by Invision</div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                            <div class=item>
+                                                                                                                                <div class=photo> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/md-open.jpg"> </div>
+                                                                                                                                    <div class=info> <a class="title text-left" href="https://github.com/creativetimofficial/material-dashboard" target=_blank>Material Dashboard</a>
+                                                                                                                                        <div class="text text-left">Bootstrap 4 Admin Dashboard</div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div class="section section-map section-black">
+                                                                                                                <div class=container>
+                                                                                                                    <div class="col-lg-5 col-md-10">
+                                                                                                                        <div class="card card-contact card-raised">
+                                                                                                                            <div class=card-body>
+                                                                                                                                <div class="info info-horizontal">
+                                                                                                                                    <div class="icon icon-primary"> <i class="nc-icon nc-chat-round"></i> </div>
+                                                                                                                                    <div class=description> <h5 class=info-title>We are here to help</h5> <a href="https://www.creative-tim.com/contact-us" class=btn>Contact Us </a> </div>
+                                                                                                                                </div>
+                                                                                                                                <div class="info info-horizontal">
+                                                                                                                                    <div class="icon icon-primary"> <i class="nc-icon nc-building"></i> </div>
+                                                                                                                                    <div class=description> <h5 class=info-title>Visit us at the HQ</h5>
+                                                                                                                                        <p> Str George Enescu, nr. 42,<br> Bucharest, Romania </p>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class=col-lg-5>
+                                                                                                                        <div class=image-container> <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/world2.png" class=map alt=""> </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <footer class="footer footer-black">
+                                                                                                                <div class=container>
+                                                                                                                    <nav class=pull-left>
+                                                                                                                        <ul>
+                                                                                                                            <li> <a href="https://www.creative-tim.com/terms" target=_blank> Terms & Conditions </a> </li>
+                                                                                                                            <li> <a href="https://www.creative-tim.com/license" target=_blank> Licenses </a> </li>
+                                                                                                                            <li> <a href="https://www.creative-tim.com/faq" target=_blank> FAQ </a> </li>
+                                                                                                                            <li> <a href="https://www.creative-tim.com/affiliates/new" target=_blank> Affiliates </a> </li>
+                                                                                                                            <li> <a href="http://blog.creative-tim.com" target=_blank> Blog </a> </li>
+                                                                                                                        </ul>
+                                                                                                                    </nav>
+                                                                                                                    <div class=pull-right>
+                                                                                                                        <div class=copyright> © 2018 <a href="https://www.creative-tim.com">Creative Tim</a>, made with love for a better web. </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </footer>
+                                                                                                            <script>
+                                                                                                            $(document).ready(function() { $(function() { $('[data-toggle="tooltip"]').tooltip() }) });
+                                                                                                            </script>
+                                                                                                            <script>
+                                                                                                            ! function(e, a, t, n, c, o, s) { e.GoogleAnalyticsObject = c, e[c] = e[c] || function() {
+                                                                                                                    (e[c].q = e[c].q || []).push(arguments) }, e[c].l = 1 * new Date, o = a.createElement(t), s = a.getElementsByTagName(t)[0], o.async = 1, o.src = n, s.parentNode.insertBefore(o, s) }(window, document, "script", "//www.google-analytics.com/analytics.js", "ga"), ga("create", "UA-46172202-1", "auto"), ga("send", "pageview");
+                                                                                                            </script>
+</body>
+
+</html>

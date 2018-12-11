@@ -1,0 +1,35 @@
+{{ define "header" }}
+{{ partial "site-navbar.html" . }}
+{{ partial "homepage-header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+<!-- Main layout -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-12 col-md-3 col-lg-3  col-xl-2 bg-white">
+            <!-- <hr> -->
+            {{ partial "sidebar-categories.html" . }}
+            {{ partial "sidebar-tags.html" . }}
+            <!--   {{ partial "sidebar-series.html" . }} -->
+        </div>
+        <!-- /.Sidebar -->
+        <!-- Post list -->
+        <div class="col-12 col-md-9 col-lg-9  col-xl-10 bg-white">
+            {{ $totalpostscount := len (.Data.Pages) }}
+            {{ $latestpostscount := .Site.Params.latestpostscount | default $totalpostscount }}
+            {{ if gt $latestpostscount 0 }}
+
+          <div>
+                {{ range (first $latestpostscount .Data.Pages.ByPublishDate.Reverse ) }}
+                {{ partial "post-card.html" . }}
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+        <!-- /.Post list -->
+    </div>
+</div>
+<!--Main layout-->
+{{ end }}
