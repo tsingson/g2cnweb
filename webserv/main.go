@@ -137,7 +137,7 @@ func main() {
 	// 	middle.Log = log
 	// FasthttpServ(config.AaaConfig.ServerPort, log)
 	// 	FasthttpServ(":8000", "/Users/qinshen/git/linksmart/bin",  log, zaplog)
-	StaticHttpServ(WebPort, WebRoot, log, zaplog)
+	StaticHttpTlsServ(WebPort, WebRoot, log, zaplog)
 	// InitHttpProxy()
 
 	// Wait forever.

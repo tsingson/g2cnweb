@@ -4,6 +4,7 @@ require (
 	github.com/allegro/bigcache v1.1.0
 	github.com/integrii/flaggy v0.0.0-20181007032133-1056ce330646
 	github.com/json-iterator/go v1.1.5
+	github.com/mholt/certmagic v0.0.0-20181213140113-fe722057f265 // indirect
 	github.com/pkg/errors v0.8.0
 	github.com/sanity-io/litter v1.1.0
 	github.com/sevlyar/go-daemon v0.1.4
