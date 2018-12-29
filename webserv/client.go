@@ -25,7 +25,7 @@ func _main() {
 		}
 		lbc.Clients = append(lbc.Clients, c)
 	}
-*/
+	*/
 
 	// Declare variables and their defaults
 	var url = "http://198.245.49.120/category"

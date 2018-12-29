@@ -37,4 +37,8 @@ func helloHandler(ctx *fasthttp.RequestCtx) {
 	return
 }
 
+func nullHandler(ctx *fasthttp.RequestCtx)  {
+	ctx.Error("", fasthttp.StatusInternalServerError)
+
+}
 // design and code by tsingson

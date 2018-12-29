@@ -4,7 +4,6 @@ import (
 	"crypto/tls"
 	"fmt"
 	"net"
-	"net/http"
 
 	"golang.org/x/crypto/acme/autocert"
 
@@ -12,20 +11,44 @@ import (
 	"github.com/spf13/afero"
 	"github.com/tsingson/fastx/utils"
 	"github.com/tsingson/fastx/zaplogger"
-	"github.com/tsingson/phi"
 	"github.com/valyala/fasthttp"
 	"github.com/valyala/fasthttp/reuseport"
 	"go.uber.org/zap"
 )
 
-// TlsServ
-func TlsServ(addr, wwwroot string, log *zap.Logger, zaplog *zaplogger.ZapLogger) {
+// FasthttpServ
+// web 服务器配置与启动, 注意, 这里会尝试重用 http 监听端口, 以便可以运行多个实例
+// 如果需要绑定 cpu 核心, 需要修改 main 以限制为单核运行
+func StaticHttpServ(addr, wwwroot string, log *zap.Logger, zaplog *zaplogger.ZapLogger) {
+	var (
+		ln, lnTls net.Listener
+		err, err1 error
+		g         run.Group
+		// 	fastLogger FastLogger
 
-	keyFile := "./cert/cn.key"
-	certFile := "./cert/cn.pem"
+	)
+
+	// 	var filesHandler = fasthttp.FSHandler("/var/www/files", 0)
+	// router.Get("/", filesHandler )
+
+	// reuse port
+	ln, err = reuseport.Listen("tcp4", addr)
+	if err != nil {
+		log.Info("working in Microsoft Windows", zap.String("addr", addr))
+		// for windows
+		ln, err1 = net.Listen("tcp4", addr)
+		if err1 != nil {
+			log.Fatal("Error", zap.Error(err1))
+			panic("tcp connect error")
+		}
+		log.Info("Listener success ")
+	}
+	ln.Close()
+
+	r := myRouter(wwwroot, zaplog)
 
 	s := &fasthttp.Server{
-		Handler:            fsHandler(wwwroot),
+		Handler:            r.ServeFastHTTP, //    fsHandler(wwwroot),
 		Name:               ServerName,
 		ReadBufferSize:     BufferSize,
 		MaxConnsPerIP:      10,
@@ -38,83 +61,13 @@ func TlsServ(addr, wwwroot string, log *zap.Logger, zaplog *zaplogger.ZapLogger)
 		// 	MaxKeepaliveDuration: time.Minute, // 新增限制
 	}
 
-	if err := s.ListenAndServeTLS(":443", certFile, keyFile); err != nil {
-		panic(err)
-	}
-
-}
-
-func httpRedirectHandler(ctx *fasthttp.RequestCtx) {
-	toURL := "https://"
-
-	// since we redirect to the standard HTTPS port, we
-	// do not need to include it in the redirect URL
-	requestHost, _, err := net.SplitHostPort(string(ctx.Host()))
-	if err != nil {
-		requestHost = string(ctx.Host()) // host probably did not contain a port
-	}
-
-	toURL += requestHost
-	toURL += string(ctx.RequestURI())
-
-	// get rid of this disgusting unencrypted HTTP connection 🤢
-	ctx.Response.Header.Set("Connection", "close")
-	ctx.Redirect(toURL, http.StatusMovedPermanently)
-	// 	http.Redirect(w, r, toURL, http.StatusMovedPermanently)
-}
-
-//
-func FasthttpServ(addr, webRoot string, log *zap.Logger, zaplog *zaplogger.ZapLogger) {
-	var (
-		ln, lnTls net.Listener
-		err, err1 error
-		// 	fastLogger FastLogger
-		router *phi.Mux
-	)
-
-	// fastLogger.Logger = log
-	router = myRouter(webRoot, zaplog)
-	router.NotFound(StaticFsHandler(webRoot))
-
-	// 	var filesHandler = fasthttp.FSHandler("/var/www/files", 0)
-	// router.Get("/", filesHandler )
-
-	// reuse port
-	ln, err = reuseport.Listen("tcp4", ":http")
-	if err != nil {
-		log.Info("working in Microsoft Windows", zap.String("addr", ":http"))
-		// for windows
-		ln, err1 = net.Listen("tcp", ":http")
-		if err1 != nil {
-			log.Fatal("Error", zap.Error(err1))
-			panic("tcp connect error")
-		}
-	}
-
-	// fasthttp server setting here
-	s := &fasthttp.Server{
-		Handler:            router.ServeFastHTTP,
-		Name:               ServerName,
-		ReadBufferSize:     BufferSize,
-		MaxConnsPerIP:      10,
-		MaxRequestsPerConn: 10,
-		// 	MaxRequestBodySize: 100<<20, // 100MB
-		MaxRequestBodySize: 1024 * 1024 * 4, // MaxRequestBodySize: 100<<20, // 100MB
-		Concurrency:        MaxFttpConnect,
-		DisableKeepalive:   false,
-		Logger:             zaplog,
-		// 	MaxKeepaliveDuration: time.Minute, // 新增限制
-	}
-
-	//  s.ServeTLS()
-
-	var g run.Group
+	/**
 	g.Add(func() error {
 		return s.Serve(ln)
 	}, func(error) {
 		ln.Close()
 	})
-
+*/
 	//
 	//
 	lnTls, err = reuseport.Listen("tcp4", ":https")

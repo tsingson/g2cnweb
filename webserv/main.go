@@ -2,20 +2,24 @@
 package main
 
 import (
+	"fmt"
+	"runtime"
+	"time"
+
+	"github.com/RussellLuo/timingwheel"
 	"github.com/allegro/bigcache"
 	"github.com/sevlyar/go-daemon"
 	"github.com/spf13/afero"
 	"github.com/tsingson/fastx/utils"
 	"github.com/tsingson/fastx/zaplogger"
 	"go.uber.org/zap"
-	"runtime"
 )
 
 const (
 	LogFileNamePrefix = "g2cn-cn"
-	PidFileName = "pid-webserv"
-	WebRoot     = "/home/www/www"
-	WebPort     = ":80"
+	PidFileName       = "pid-webserv"
+	WebRoot           = "/home/www/www"
+	WebPort           = ":80"
 )
 
 var (
@@ -34,7 +38,7 @@ func init() {
 	// get run path
 	{
 		path, _ = utils.GetCurrentExecDir()
-		currentPath = path
+		currentPath, _ = utils.GetCurrentPath()
 
 	}
 	{
@@ -49,7 +53,7 @@ func init() {
 
 		// log setup
 
-		log = zaplogger.NewZapLog(logPath, LogFileNamePrefix, true )
+		log = zaplogger.NewZapLog(logPath, LogFileNamePrefix, true)
 
 		atom := zap.NewAtomicLevel()
 		atom.SetLevel(zap.InfoLevel)
@@ -57,6 +61,7 @@ func init() {
 		zaplog = zaplogger.InitZapLogger(log)
 		log.Info("- - - - - - - - - - - - - - -")
 		log.Info("log init success")
+		log.Info("path", zap.String("current", currentPath))
 
 	}
 	/**
@@ -78,38 +83,12 @@ func init() {
 
 }
 
-//
-func localWeb() {
-	//
 
-	// gops tracing
-	// 	if err := agent.Listen(agent.Options{ConfigDir: currentPath}); err != nil {
-	// 	log.Fatal("google gops Init Fail")
-	// 	}
-
-	log.Info("- - - - - - - - - - - - - - -")
-	log.Info("daemon started")
-
-	// 	middle.Log = log
-	// FasthttpServ(config.AaaConfig.ServerPort, log)
-	// 	FasthttpServ(":8000", "/Users/qinshen/git/linksmart/bin",  log, zaplog)
-	FasthttpServ(WebPort, WebRoot, log, zaplog)
-	// InitHttpProxy()
-
-	// Wait forever.
-	select {}
-
-}
 
 //
 func main() {
 	//
 	runtime.GOMAXPROCS(128)
-
-	// gops tracing
-	// 	if err := agent.Listen(agent.Options{ConfigDir: currentPath}); err != nil {
-	// 	log.Fatal("google gops Init Fail")
-	// 	}
 
 	// daemon
 	cntxt := &daemon.Context{
@@ -130,6 +109,7 @@ func main() {
 		return
 	}
 	defer cntxt.Release()
+	// daemon
 
 	log.Info("- - - - - - - - - - - - - - -")
 	log.Info("daemon started")
@@ -137,8 +117,22 @@ func main() {
 	// 	middle.Log = log
 	// FasthttpServ(config.AaaConfig.ServerPort, log)
 	// 	FasthttpServ(":8000", "/Users/qinshen/git/linksmart/bin",  log, zaplog)
-	StaticHttpTlsServ(WebPort, WebRoot, log, zaplog)
+	wwwroot := currentPath + "/g2cncn/public"
+	log.Info("current exec path", zap.String("path", wwwroot))
+	StaticHttpServ(WebPort, wwwroot, log, zaplog)
 	// InitHttpProxy()
+
+	tw := timingwheel.NewTimingWheel(time.Millisecond, 20)
+	tw.Start()
+	defer tw.Stop()
+
+	exitC := make(chan time.Time, 1)
+	tw.AfterFunc(time.Second, func() {
+		fmt.Println("The timer fires")
+		exitC <- time.Now()
+	})
+
+	<-exitC
 
 	// Wait forever.
 	select {}
